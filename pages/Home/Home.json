@@ -14,7 +14,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1010,
+          "bottomRow": 850,
           "containerStyle": "none",
           "snapRows": 99,
           "parentRowSpace": 1,
@@ -39,13 +39,49 @@
               "timeoutInMillisecond": 10000
             },
             {
+              "id": "Home_utils.getCourses",
+              "name": "utils.getCourses",
+              "collectionId": "Home_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const courses = await getCourses.run();\n  if (!courses.data.courses) {\n    navigateTo(\"Login\");\n  }\n  return courses;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "Home_utils.setEnv",
               "name": "utils.setEnv",
               "collectionId": "Home_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "() => {\n  const hostName = appsmith.URL.hostname;\n  if (hostName === \"localhost\") {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  } else {\n    storeValue('URL_API', 'Link to production api');\n  }\n  return appsmith.store.URL_API;\n}"
+                "() => {\n  const hostName = appsmith.URL.hostname;\n  if (hostName === \"localhost\") {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  } else {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  }\n  return appsmith.store.URL_API;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Home_getClassByCourse",
+              "name": "getClassByCourse",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "Select1.selectedOptionValue",
+                "appsmith.store.jwt",
+                "appsmith.store.URL_API"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_getCourses",
+              "name": "getCourses",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.jwt",
+                "appsmith.store.URL_API"
               ],
               "timeoutInMillisecond": 10000
             }

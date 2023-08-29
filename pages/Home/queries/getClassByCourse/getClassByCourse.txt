@@ -1,0 +1,11 @@
+query GetClasses($search: String, $courses: [String]) {
+  classes(payload: {course_in: $courses, filter_textSearch: $search}) {
+    data {
+      id
+      name
+    }
+    pagination {
+      total
+    }
+  }
+}
