@@ -1,0 +1,46 @@
+query getOnholdRequests($search: String, $student: String, $status: [String], $paginationType: String, $pageIndex: Int, $itemsPerPage: Int, $orderBy: String, $startDateFrom: String, $startDateTo: String, $endDateFrom: String, $endDateTo: String, $centre: [String]) {
+  findAllOnholdRequests(payload: {filter_textSearch: $search, student: $student, status_in: $status, paginationType: $paginationType, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage, orderBy: $orderBy, startDate_gte: $startDateFrom, startDate_lte: $startDateTo, endDate_gte: $endDateFrom, endDate_lte: $endDateTo, centre_in: $centre}) {
+    data {
+      id
+      centre {
+        id
+        name
+      }
+      recentlyClasses {
+        id
+        name
+      }
+      dayNumber
+      startDate
+      endDate
+      reason
+      description
+      reasonPhoto
+      status
+      times
+      student {
+        id
+        fullName
+        phoneNumber
+        email
+        customer {
+          fullName
+          phoneNumber
+          email
+        }
+      }
+      productItems {
+        product {
+          name
+          _id
+        }
+      }
+      createdBy
+      createdAt
+    }
+    pagination {
+      type
+      total
+    }
+  }
+}

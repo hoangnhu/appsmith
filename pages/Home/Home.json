@@ -1,0 +1,68 @@
+{
+  "unpublishedPage": {
+    "name": "Home",
+    "slug": "home",
+    "customSlug": "",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1010,
+          "containerStyle": "none",
+          "snapRows": 99,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 85,
+          "minHeight": 1010,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Home_getOnHoldRequest",
+              "name": "getOnHoldRequest",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.URL_API"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_utils.setEnv",
+              "name": "utils.setEnv",
+              "collectionId": "Home_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "() => {\n  const hostName = appsmith.URL.hostname;\n  if (hostName === \"localhost\") {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  } else {\n    storeValue('URL_API', 'Link to production api');\n  }\n  return appsmith.store.URL_API;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Home",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "63f48eafdb642f4c0d66c3aa_642bc8600cbeba5c311c64dd"
+}

@@ -1,0 +1,12 @@
+query getCourses($isActive: Boolean, $paginationType: PaginationType, $search: String) {
+  courses(payload: {isActive_eq: $isActive, paginationType: $paginationType, searchString_wordSearch: $search}) {
+    data {
+      id
+      name
+    }
+    pagination {
+      type
+      total
+    }
+  }
+}

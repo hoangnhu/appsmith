@@ -1,23 +1,11 @@
 {
   "pages": [
     {
-      "id": "Dashboard",
+      "id": "Home",
       "isDefault": true
     },
     {
-      "id": "Orders",
-      "isDefault": false
-    },
-    {
-      "id": "Customers",
-      "isDefault": false
-    },
-    {
-      "id": "Products",
-      "isDefault": false
-    },
-    {
-      "id": "Returns",
+      "id": "Login",
       "isDefault": false
     }
   ],
