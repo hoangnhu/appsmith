@@ -38,7 +38,7 @@
           "value": true
         },
         {
-          "value": "{\n  \"search\": \"\",\n  \"pageIndex\": 0,\n  \"itemsPerPage\": 20,\n  \"orderBy\": \"startDate_desc\"\n}"
+          "value": "{\n  \"search\": \"\",\n  \"pageIndex\": 0,\n  \"itemsPerPage\": 20,\n  \"orderBy\": \"startDate_desc\",\n\t\n\"status\":[{{Select3.selectedOptionValue}}]\n}"
         },
         {
           "value": {}
@@ -52,12 +52,16 @@
     "dynamicBindingPathList": [
       {
         "key": "path"
+      },
+      {
+        "key": "pluginSpecifiedTemplates[1].value"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
+      "Select3.selectedOptionValue",
       "appsmith.store.URL_API"
     ],
     "userSetOnLoad": true,

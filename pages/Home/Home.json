@@ -14,7 +14,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 850,
+          "bottomRow": 940,
           "containerStyle": "none",
           "snapRows": 99,
           "parentRowSpace": 1,
@@ -34,6 +34,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
+                "Select3.selectedOptionValue",
                 "appsmith.store.URL_API"
               ],
               "timeoutInMillisecond": 10000
@@ -63,23 +64,25 @@
           ],
           [
             {
+              "id": "Home_getCourses",
+              "name": "getCourses",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.jwt",
+                "appsmith.store.URL_API"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Home_getClassByCourse",
               "name": "getClassByCourse",
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
                 "Select1.selectedOptionValue",
-                "appsmith.store.jwt",
-                "appsmith.store.URL_API"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Home_getCourses",
-              "name": "getCourses",
-              "confirmBeforeExecute": false,
-              "pluginType": "API",
-              "jsonPathKeys": [
                 "appsmith.store.jwt",
                 "appsmith.store.URL_API"
               ],
