@@ -551,7 +551,7 @@
             "index": 0,
             "isDiscardVisible": true,
             "isVisible": true,
-            "label": "ID",
+            "label": "#",
             "fontStyle": "",
             "textColor": "",
             "columnType": "text",
