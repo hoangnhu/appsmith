@@ -1,0 +1,15 @@
+query getStudents($search: String, $selectableCourses: [String!], $status: [String!], $candidateTypes: [String!], $pageIndex: Int!, $itemsPerPage: Int!, $orderBy: String) {
+  students(payload: {filter_textSearch: $search, selectableCourses_in: $selectableCourses, status_in: $status, candidateTypes_in: $candidateTypes, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage, orderBy: $orderBy}) {
+    data {
+      id
+      fullName
+      customer {
+        fullName     
+      }
+    }
+    pagination {
+      type
+      total
+    }
+  }
+}

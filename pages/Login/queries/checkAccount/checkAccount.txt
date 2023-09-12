@@ -1,5 +1,0 @@
-{
-  "email": {{Input1.text}},
-  "password": {{Input2.text}},
-  "returnSecureToken": true
-}

@@ -20,7 +20,7 @@
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "{{appsmith.store.URL_API}}",
+      "path": "{{appsmith.store.BASE_API_URL_LMS}}",
       "headers": [
         {
           "key": "content-type",
@@ -62,7 +62,7 @@
     "messages": [],
     "jsonPathKeys": [
       "Select3.selectedOptionValue",
-      "appsmith.store.URL_API"
+      "appsmith.store.BASE_API_URL_LMS"
     ],
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,

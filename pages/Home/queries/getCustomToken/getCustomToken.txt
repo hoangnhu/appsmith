@@ -1,0 +1,7 @@
+mutation GetCustomToken {
+  users {
+    getCustomToken {
+      customToken
+    }
+  }
+}

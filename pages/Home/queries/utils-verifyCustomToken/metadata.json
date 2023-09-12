@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getCourses",
-    "fullyQualifiedName": "utils.getCourses",
+    "name": "verifyCustomToken",
+    "fullyQualifiedName": "utils.verifyCustomToken",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -36,7 +36,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_utils.getCourses",
+  "id": "Home_utils.verifyCustomToken",
   "deleted": false,
-  "gitSyncId": "64ee20698f62002e5ee2450f_64ee215f45ac3b4f389e6ca7"
+  "gitSyncId": "64fec56e63725058424a082c_65009d953ceb372c0aaf1b22"
 }

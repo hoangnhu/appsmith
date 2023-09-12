@@ -2,7 +2,7 @@
     "resetFormOnClick": false,
     "boxShadow": "none",
     "widgetName": "btn_addCustomer",
-    "onClick": "{{showModal('mdl_addOnHold');}}",
+    "onClick": "{{showModal('mdl_addOnHold');\ngetOnHoldReason.run();\ngetInActiveStudent.run();\ngetCenters.run()}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "displayName": "Button",
     "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",

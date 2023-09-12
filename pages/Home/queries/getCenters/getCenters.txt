@@ -1,0 +1,18 @@
+query getCentres($search: String, $isActive: Boolean, $pageIndex: Int!, $itemsPerPage: Int!, $orderBy: String, $paginationType: PaginationType) {
+  centres(payload: {filter_textSearch: $search, isActive_eq: $isActive, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage, orderBy: $orderBy, paginationType: $paginationType}) {
+    data {
+      id
+      shortName
+      name
+      hotline
+      email
+      address
+      isActive
+    }
+    pagination {
+      type
+      total
+    }
+  }
+}
+

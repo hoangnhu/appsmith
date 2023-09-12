@@ -1,0 +1,14 @@
+query Get($payload: OnholdRequestReasonQuery) {
+  onholdRequestReasons(payload: $payload) {
+    data {
+      id
+      name
+      isActive
+      createdAt
+    }
+    pagination {
+      type
+      total
+    }
+  }
+}

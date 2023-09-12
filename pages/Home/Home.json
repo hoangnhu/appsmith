@@ -29,24 +29,21 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Home_getOnHoldRequest",
-              "name": "getOnHoldRequest",
+              "id": "Home_getEnv",
+              "name": "getEnv",
               "confirmBeforeExecute": false,
-              "pluginType": "API",
-              "jsonPathKeys": [
-                "Select3.selectedOptionValue",
-                "appsmith.store.URL_API"
-              ],
+              "pluginType": "DB",
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Home_utils.getCourses",
-              "name": "utils.getCourses",
+              "id": "Home_utils.setAuthToken",
+              "name": "utils.setAuthToken",
               "collectionId": "Home_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const courses = await getCourses.run();\n  if (!courses.data.courses) {\n    navigateTo(\"Login\");\n  }\n  return courses;\n}"
+                "async () => {\n  const getCustomTokenResult = await getCustomToken.run();\n  if (getCustomTokenResult?.errors && getCustomTokenResult?.errors[0].extensions.code === 'NOT_AUTHENTICATED') {\n    storeValue('CUSTOM_TOKEN', '');\n  } else {\n    storeValue('CUSTOM_TOKEN', getCustomToken.data.data.users.getCustomToken.customToken);\n  }\n  return appsmith.store.CUSTOM_TOKEN;\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -57,34 +54,77 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "() => {\n  const hostName = appsmith.URL.hostname;\n  if (hostName === \"localhost\") {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  } else {\n    storeValue('URL_API', 'https://lms-api-dev.mindx.edu.vn/');\n  }\n  return appsmith.store.URL_API;\n}"
+                "async () => {\n  const getEnvQuery = await getEnv.run();\n  if (getEnvQuery.length > 0) {\n    storeValue('BASE_API_URL_LMS', getEnvQuery[0].BASE_API_URL_LMS);\n    storeValue('BASE_API_URL', getEnvQuery[0].BASE_API_URL);\n    storeValue('BASE_WEB_URL', getEnvQuery[0].BASE_WEB_URL);\n  }\n  return appsmith.store.BASE_WEB_URL;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_utils.setTokenHash",
+              "name": "utils.setTokenHash",
+              "collectionId": "Home_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  storeValue('TOKEN_HASH', appsmith.URL.queryParams.token_hash);\n  return appsmith.store.TOKEN_HASH;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_utils.verifyCustomToken",
+              "name": "utils.verifyCustomToken",
+              "collectionId": "Home_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const getTokenResult = await verifyCustomToken.run();\n  if (getTokenResult) {\n    storeValue('TOKEN', getTokenResult.idToken);\n  }\n  return appsmith.store.TOKEN;\n}"
               ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
             {
-              "id": "Home_getCourses",
-              "name": "getCourses",
+              "id": "Home_getOnHoldRequest",
+              "name": "getOnHoldRequest",
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
-                "appsmith.store.jwt",
-                "appsmith.store.URL_API"
+                "Select3.selectedOptionValue",
+                "appsmith.store.BASE_API_URL_LMS"
               ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
             {
-              "id": "Home_getClassByCourse",
-              "name": "getClassByCourse",
+              "id": "Home_getCenters",
+              "name": "getCenters",
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
-                "Select1.selectedOptionValue",
-                "appsmith.store.jwt",
-                "appsmith.store.URL_API"
+                "appsmith.store.BASE_API_URL_LMS",
+                "appsmith.store.TOKEN"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_getInActiveStudent",
+              "name": "getInActiveStudent",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.BASE_API_URL_LMS",
+                "appsmith.store.TOKEN"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Home_getOnHoldReason",
+              "name": "getOnHoldReason",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.BASE_API_URL_LMS",
+                "appsmith.store.TOKEN"
               ],
               "timeoutInMillisecond": 10000
             }

@@ -1,0 +1,42 @@
+mutation CreateOnholdRequest($payload: CreateOnholdRequestCommand!) {
+  onholdRequests {
+    create(payload: $payload) {
+      id
+      centre {
+        id
+        name
+      }
+      recentlyClasses {
+        id
+        name
+      }
+      dayNumber
+      startDate
+      endDate
+      reason
+      description
+      reasonPhoto
+      status
+      times
+      student {
+        id
+        fullName
+        phoneNumber
+        email
+        customer {
+          fullName
+          phoneNumber
+          email
+        }
+      }
+      productItems {
+        product {
+          name
+          _id
+        }
+      }
+      createdBy
+      createdAt
+    }
+  }
+}
